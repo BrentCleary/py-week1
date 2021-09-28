@@ -214,6 +214,60 @@ tuple_data = ('physics', 'chemistry', 1997, 2000)
 
 
 
+# Dictionaries - A type of set that uses a key and a pair. Declared by: variable = {key: value} Each key must be unique
+
+weekend = {"Sun": "Sunday", "Sat": "Saturday"}
+capitals = {} #Creates an empty dictionary
+capitals["svk"] = "Bratislava"
+capitals["deu"] = "Berlin"
+capitals["dnk"] = "Copenhagen"
+print(capitals) #Output: {"svk": "Bratislava", "deu": "Berlin", "dnk": "Copenhagen"}
+
+# Accessing values
+print(weekend["Sun"]) #Output: "Sunday"
+print(capitals["svk"]) #Output: "Bratislava"
+
+# Removing values
+value_removed = capitals.pop('svk') #Assigns key-pair "svk" to value_removed, and removes from end of capitals
+del capitals['dnk'] #Deletes the key, and returns nothing
+
+#Nested Dictionaries
+context = {
+    'questions': [
+        {'id': 1, 'content': 'Why is there a light in the fridge and not in the freezer'},
+        {'id': 2, 'content': 'Why don\'t sheep shrink when it rains?'}
+    ]
+}
+
+#dict - Functions
+cmp(dict1, dict2) # Compares two dictionaries
+len() #give the total length of the dictionary
+str() #produces a string representation fo a dictionary
+type() #returns the type of the passed variable. If passed variable is a dictionary, it will rturn a dict type.
+
+#dict - Dictionary Methods 
+
+# Called by
+dict.method(yourDictionary)
+yourDictionary.method()
+
+.clear() #removes all elements from the dictionary
+.copy() #returns a shallow copy dictionary
+.fromkeys(sequenence, [value]) #create a new dictionary with keys from sequence and values set to a value
+# Output {'sequence[0]': value, 'sequence[1]': value, 'sequence[2]': value}
+.get(key, default=None) # For key (key), returns value or default if key is not in dictionary
+.has_key(key) - #Returns true if key is present in dictionary, otherwise it returns false
+.items() #Returns a list of the dictionary's (key, value) tuple pairs
+.keys() #Return a list of dictionary keys
+.setdefault(key, default=None) #Similar to get(), but will set dict[key]=default if key is not already in dictionary. Adds to the dictionary.
+.update(dict2) #Adds dictionary dict2 key-values pairs to an existing dictionary
+.values() # returns list of dictionary values
+
+
+
+#Conditionals - Run code if conditions are met. Conditionals are if(), elif(), and else().
+
+
 
 
 
@@ -252,3 +306,8 @@ print(x.title()) #Output: "Hello World" - Does this capitalize the first letter 
 my_list = [1, 'Zen', 'hi']
 print(enumerate(my_list)) # Output: ('0:1', '1:Zen', '2:hi')
 
+#6 What is a shallow copy dictionary?
+.copy() #returns a shallow copy dictionary
+
+#7 Does this return for all key pairs, or just tuples?
+.items() #rReturns a list of the dictionary's (key, value) tuple pairs  
