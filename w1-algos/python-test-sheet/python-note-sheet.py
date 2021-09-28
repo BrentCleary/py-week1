@@ -22,7 +22,6 @@ dog = ("Bruce", "cocker spaniel", 19, False)
 print(dog[0]) # Outputs Bruce
 dog[1] = "daschund"  # ERROR: cannot be modified. Item assignment not supported.
 
-
 # Lists - A mutable group that can hold a group of values:
 empty_list = []
 ninjas = ['Rozen', 'KB', 'Oliver']
@@ -34,7 +33,6 @@ ninjas.pop()
 print(ninjas) #Ouput is ['Francis', 'KB', 'Oliver]
 ninjas.pop(1)
 print(ninjas) #Ouput is ['Francis', 'Oliver]
-
 
 #Dictionaries - A group of key value pairs
 empty_dict = {}
@@ -59,9 +57,7 @@ print(type(new_person)) #Outputs <'class 'dict'>
 print(len(new_person)) #output : 4 (the number of key-value pairs)
 print(len('Coding Dojo')) #output: 11
 
-
 # Javascript to Python number types
-
 num = 25  # int (integer)
 dec = 4.2 # float
 print(num) # Console.log command  
@@ -95,7 +91,6 @@ print("My name is", name) #Output "My name is Zen"
 # The print() function will add a space between elements seperated by a comma
 print("My name is " + name) #Output "My name is Zen"
 #This function is concatinating these into a new string
-
 
 # Explicit Type Conversion
 print("Hello" + 42) #Output: Type Error - Cannot concatinate a string and int
@@ -146,6 +141,7 @@ string.isalnum() #Returns boolean depending on whether the string's length is >0
 .isalpha() .isdigit(), islower(), .isupper() # All return boolean
 string.join(list) #Returns a string that is all strings within our set (in this case a list) concatenated
 string.endswith(substring) #Returns a boolean based upon whether the last characters of string match substring
+
 
 
 
@@ -206,11 +202,13 @@ list.index(value) #returns the index position in a list for the given parameter
 
 
 
+
 # Tuples (Immutable lists. Created by using parenthesis. Tuple stands for dou'ble', tri'ple', quadr'uple, etc. )
 
 tuple_data = ('physics', 'chemistry', 1997, 2000)
 
 # Tuples are useful for data structures that should not be changed.
+
 
 
 
@@ -245,6 +243,7 @@ len() #give the total length of the dictionary
 str() #produces a string representation fo a dictionary
 type() #returns the type of the passed variable. If passed variable is a dictionary, it will rturn a dict type.
 
+
 #dict - Dictionary Methods 
 
 # Called by
@@ -265,12 +264,114 @@ yourDictionary.method()
 
 
 
-#Conditionals - Run code if conditions are met. Conditionals are if(), elif(), and else().
+
+# Conditionals - Run code if conditions are met. Conditionals are if(), elif(), and else().
+
+x = 12
+if x> 50:
+    print("bigger than 50")
+else: 
+    print("smaller than 50")
+
+x = 55
+if x > 10:
+    print("bigger than 10") #Output: Only this will execute since it evaluates true first.
+elif x > 50:
+    print("bigger than 50")
+else:
+    print("smaller than 10")
+
+if x < 10:
+    print("bigger than 10") #Output: This will not execute because it is false.
+
+# operaters
+== #Checks if two operands are equal
+!+ #Checks if two operands are not equal
+> #Checks if left operand is greater
+< #Checks if left operand is smaller
+>= #Checks if left operand is equal or greater
+<= #Checks if left operand is equal or smaller
+
+and #Checks if left and right are both True
+or #Checks if either left and right are True
+not #Reveres the True-False value of the operand
 
 
 
 
+# Loops - range()
 
+# Range with one argument
+range(5) -- stop  #Output: 0,1,2,3,4  Exclusive Stop is 5
+# Range with two arguments
+range(5,10) -- start, stop  #Output: 5,6,7,8,9  Exclusive Stop is 10
+# Range with three arguments
+range(5,10,2) -- start, stop, step  #Outputs: 5,7,9  Exclusive Stop is 5
+
+for x in range(0,10,2):
+    print(x) # output 0,2,4,6,8
+for x in range(5,-1,3):
+    print(x) #outputs 5,2
+
+# loops in strings accesses each value in the string
+for x in 'Hello':
+    print(x) #outputs: 'H' 'e' 'l' 'l' 'o'
+
+# loops in lists
+my_list = {"abc", 123, 2 xyz}
+for i in range(0, len(mylist)):
+    print(i, my_list[i]) #Outputs: 0 abc, 1 123, 2 xyz
+for v in my_list:
+    print(v) #Outputs: abc, 123, xyz
+
+# loops through tuples
+for data in dog:
+    print(data)
+
+# loops through dictionaries - dictionaries loop through by key
+my_dict = {"name": "Noelle", "language": "Python"}
+for k in my_dict:
+    print(k) #output: name, language
+
+my_dict = {"name": "Noelle", "language": "Python"}
+for k in my_dict:
+    print(my_dict[k]) #output Noelle, Python
+
+#other key iterations
+capitals = {"Washington":"Olympia","California":"Sacramento","Idaho":"Boise","Illinois":"Springfield","Texas":"Austin","Oklahoma":"Oklahoma City","Virginia":"Richmond"}
+for key in capitals.values():
+    print(key) # output: Washington, California, Idaho, Illinois, Texas, Oklahoma, Virginia
+for val in capitals.value():
+    print(val) # output: Olympia, Sacramento, Boise, Springfield, Austin, Oklahoma City, Richmond
+for key, val in capitals.item():
+    print(key, " = ", val) # output: Washington = Olympia, California = Sacramento, Idaho = Boise, etc
+
+# While Loops - Another way of looping while a certain condition is true
+count = 0;
+while count <= 5:
+    print("looping - ", count)
+    count += 1
+
+while<expression>: #basic syntax for while loops
+
+# while else statements - 
+y = 3
+while y > 0:
+    print(y)
+    y = y - 1
+else:
+    print("Final else statement")
+
+# Loop Controls
+if 
+elif
+else
+break #exits the current loop permanently
+# nested loops only break from the inner most loop
+
+
+
+continue
 
 
 
