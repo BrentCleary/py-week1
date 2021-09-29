@@ -4,8 +4,8 @@
 			"path": "w1-algos/python-test-sheet/python-note-sheet.py",
 			"bookmarks": [
 				{
-					"line": 3,
-					"column": 11,
+					"line": 1,
+					"column": 6,
 					"label": ""
 				},
 				{
@@ -51,6 +51,11 @@
 				{
 					"line": 298,
 					"column": 6,
+					"label": ""
+				},
+				{
+					"line": 389,
+					"column": 10,
 					"label": ""
 				}
 			]

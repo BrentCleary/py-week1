@@ -1,4 +1,24 @@
 
+# Python Notes
+
+#VsCode Commands
+Ctrl + ? # Quotes out all selected lines. Repeat to undo.
+Alt + Z # Codewrap for long lines
+Alt + Shift + Down-Arrow # Copies a line to the line below
+Highlight + Ctrl + D # Continues to select instances of highlighted word in order 
+
+
+#Discord Comments
+```py # formats code posted in discord for Python
+
+
+# import libraries
+import urllib.request
+response = urllib.request.urlopen("http://www.codingdojo.com")
+html = response.read()
+print(html)
+
+
 
 
 #Data Types
@@ -76,6 +96,8 @@ print(type(float_to_int))
 print(type(int_to_complex))
 
 # Random Number
+from _typeshed import HasFileno
+from os import X_OK
 import random
 from typing import Sequence
 print(random.randint(2,5)) # provides a random number between 2 and 5
@@ -383,6 +405,180 @@ while y > 0:
         break
 else: # only executes on a clean exit from the while loop, not a break
     print("Final else statement") #output: 3, 2, 1
+
+
+
+
+# Functions - has a name, parameters, performs instructions, returns something after
+
+# this is our list of ingredients or parameters
+def burger(bun, meat, cheese, toppings):
+    
+    #Instructions or logic in our function
+    split bun in half 
+    cook meat
+    place cheese on meat 
+    place meat on bottom bun 
+    add toppings on meat 
+    place top bun over everything
+
+    # now we can serve up our burger
+    return prepared ingredients
+
+#def
+def #Keyword that signifies the declaration of a function ( "de"clare "f"unction)
+
+def add(a,b): # function name: 'add', parameters: (a, b)
+    x = a + b # process
+    return x # returns value x
+
+# calling the function
+
+new_val = add(3,5) # this calls the new function and assigns the returned value to new_val
+print(new_val) # This will print the value stored in new_val, which is 8
+
+def say_hi(name): # name is the parameter of the function
+    print("Hi, " + name)
+
+say_hi("Michael") # "Michael" is the argument passed into the function. Output: "Hi, Michael"
+
+greeting = say_hi("Michael")
+    print(greeting) # This will print the value returned and stored in greeting
+
+
+# Default Parameters - allows parameters to be optional by providing defaults
+def be_cheerful(name='', repeat=2)
+    print(f'Good morning {name}\n' * repeat)
+be_cheerful() # Will print Good morning (repeated on 2 lines)
+be_cheerful("tim") # Will print Good morning tim (repeated on 2 lines)
+be_cheerful(name="john") # Will print Good morning john(repeated on 2 lines)
+be_cheerful(repeat=6) # Will print Good morning (repeated on 6 lines)
+be_cheerful(name="michael", repeat=5) # Will print Good morning michael (repeated on 5 lines)
+be_cheerful(repeat=3, name="kb") # Will print Good morning (repeated on 2 lines)
+
+
+
+
+
+
+# Class - Classes are like blue-prints for objects. They have attributes (like properties such as height/weight) and methods (such as run/jump. They are blueprints for creating custom objects.
+
+class User: # This creates a class called User (pass allows the console to move past it)
+    pass
+
+michael = User() # This creates new instances of our class
+anna = User()
+
+# Attributes: Characteristics shared by all instances of the class type.
+# Methods: Actions that an object can perform. A user, for example, should be able to make a deposit or a withdrawal, or maybe send money to another user.
+
+# Instance attributes are defined in a "magic method" called __init__, which is called when a new object is instantiated.
+
+def __init__(self):
+
+# declare a class and give it name User
+class User:		
+    def __init__(self):
+        self.name = "Michael"
+        self.email = "michael@codingdojo.com"
+        self.account_balance = 0
+
+# The first parameter of an instance method within a class will be self, and the instance attributes are also indicated by self. .
+# self is a reference to the instance, not the class.
+
+# This will create instances of the class User
+User()
+guido = User()
+monty = User()
+# Accessing the instance's attributes
+print(guido.name)	# output: Michael
+print(monty.name)	# output: Michael
+
+# We can also set the values for our instances attributes:
+guido.name = "Guido"
+print(guido.name) # output: Guido
+monty.name = "Monty"
+print(monty.name) # output: Monty
+
+
+# Class Attributes - defined outside of any instance methods, and is shared among all instances of the class. 
+
+# declaring a class attribute
+class User:
+    bank_name = "First National Dojo"		
+    def __init__(self):
+        self.name = "Michael"
+        self.email = "michael@codingdojo.com"
+        self.account_balance = 0
+
+# Changing attributes on an instance: 
+guido = User()
+monty = User()
+guido.bank_name = "Dojo Credit Union"
+print(guido.bank_name) # output: Dojo Credit Union 
+print(monty.bank_name) # output: First National Dojo
+
+# Changing attributes on the entire class:
+User.bank_name = "Bank of Dojo"
+print(guido.bank_name) # output: Bank of Dojo 
+print(monty.bank_name) # output: Bank of Dojo
+
+
+# Now we are going to pass in arguments into the __init__ method to specify a user's instance attributes.
+
+# In our example, even though we have 3 instance attributes, we only require input for 2 of them. When the User instance is created, we should expect to receive specific values for the name and email address. We'll assume, however, that everyone starts with $0 in their account. Let's adjust our code to allow arguments to be passed in upon instantiation:
+
+class User:
+    # class attributes get defined in the class 
+    bank_name = "First National Dojo"
+    # now our method has 2 parameters!
+    def __init__(self , name, email_address):
+    	# we assign them accordingly
+        self.name = name
+        self.email = email_address
+    	# the account balance is set to $0
+        self.account_balance = 0
+guido = User("Guido van Rossum", "guido@python.com")
+monty = User("Monty Python", "monty@python.com")
+print(guido.name)	# output: Guido van Rossum
+print(monty.name)	# output: Monty Python
+
+
+#Methods - Functions that belong to a class. This means that we can't call them independently as we have called functions previously; rather, methods must be called from an instance of a class.
+
+guido.make_deposit(100) #Calls Method .make_deposit with parameter-100 from Class-User Instance-guido
+
+#Class User with Method .make_deposit
+class User:		# here's what we have so far
+    def __init__(self, name, email):
+        self.name = name
+        self.email = email
+        self.account_balance = 0
+    # adding the deposit method
+    def make_deposit(self, amount):	# takes an argument that is the amount of the deposit
+    	self.account_balance += amount	# the specific user's account increases by the amount of the value received
+
+# methods also have access to the attributes of a class, as well as parameters
+
+guido.make_deposit(100)
+guido.make_deposit(200)
+monty.make_deposit(50)
+print(guido.account_balance)	# output: 300
+print(monty.account_balance)	# output: 50
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
