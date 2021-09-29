@@ -362,17 +362,27 @@ while y > 0:
 else:
     print("Final else statement")
 
-# Loop Controls
-if 
-elif
-else
-break #exits the current loop permanently
-# nested loops only break from the inner most loop
+#break -exits the current loop permanently
 
+for val in "string": 
+    if(val == "i"):
+        break
+    print(val) # Outputs - s,t,r
 
+# continue - immediately returns control to the beginning of the loop
+for val in "string":
+    if val == i:
+        continue
+    print(val)  #outputs s, t, r, n, g
 
-continue
-
+y = 3
+while y > 0:
+    print(y)
+    y = y - 1
+    if y == 0:
+        break
+else: # only executes on a clean exit from the while loop, not a break
+    print("Final else statement") #output: 3, 2, 1
 
 
 
