@@ -193,11 +193,11 @@ x.append(99)
 print(x) #Output: [1,2,3,4,5,99]  
 
 # Python returns lists in [] specified by indices
-x = [99,,4,2,5,-3]
-print(x[:]]) #Output: [99,4,2,5,-3] 
+x = [99,4,2,5,-3]
+print(x[:]) #Output: [99,4,2,5,-3] 
 print(x[1:]) #Output: [4,2,-5,-3]
 print(x[4:]) #output: [99,4,2,5]
-print(x{2:4]) #output: [2,5]
+print(x[2:4]) #output: [2,5]
 
 
 # len(sequence) (length) - Returns the number of items in a sequence
@@ -567,9 +567,87 @@ print(guido.account_balance)	# output: 300
 print(monty.account_balance)	# output: 50
 
 
+# Chaining Methods - Allows a class instance to be called just once, and keep attaching methods to the original method call
+
+# This series of method calls -
+guido.make_deposit(100)
+guido.make_deposit(200)
+guido.make_deposit(300)
+guido.make_withdrawal(50)
+guido.display_user_balance()
+
+# becomes this series of chained method calls
+guido.make_deposit(100).make_deposit(200).make_deposit(300).make_withdrawal(50).display_user_balance()
+
+# In order to do this, the method must return self at the end of the method, or it will not update from the instance
+class User:
+    def make_deposit(self, amount):
+        # your code goes here...
+        return self
+
+# self is similar to 'this' in Javascript
 
 
+# Class and Static Methods - Normally when we create a method on a class we pass in self to refer to the instance of the object.  These normal methods are referred to as instance methods. Some methods belong to the class, but not the instance.
 
+# @classmethod
+
+@classmethod
+    def change_bank_name(cls,name):
+        cls.bank_name = name
+
+# Defined with a decorator @classmethod. Belong to the class itself, instead of the instance. Instead passing self into the method, we pass cls. This is reference to the class.
+
+class BankAccount:
+    
+    # class attribute
+    bank_name = "First National Dojo"   
+    all_accounts = []
+    def __init__(self, int_rate,balance):
+        self.int_rate = int_rate
+        self.balance = balance
+        BankAccount.all_accounts.append(self)
+
+    # class method to change the name of the bank
+    @classmethod
+    def change_bank_name(cls,name):
+        cls.bank_name = name
+
+    # class method to get balance of all accounts
+    @classmethod
+    def all_balances(cls):
+        sum = 0
+        # we use cls to refer to the class
+        for account in cls.all_accounts:
+            sum += account.balance
+        return sum
+
+
+# @staticmethod
+
+# Static methods are functions defined within the class with a decorator @staticmethod.
+# They have no access on instance or class attributes so we do need to pass any arguments into them.
+
+class BankAccount:
+    # ... __init__ goes here
+    def with_draw(self,amount):
+        
+        # we can use the static method here to evaluate
+        # if we can with draw the funds without going negative
+        if BankAccount.can_withdraw(self.balance,amount):
+            self.balance -= amount
+        else:
+            print("Insufficient Funds")
+        return self
+    
+    # static methods have no access to any attribute
+    # only to what is passed into it
+    @staticmethod
+    def can_withdraw(balance,amount):
+        if (balance - amount) < 0:
+            return False
+        else:
+            return True
 
 
 
