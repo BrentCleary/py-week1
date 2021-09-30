@@ -275,6 +275,7 @@ yourDictionary.method()
 .clear() #removes all elements from the dictionary
 .copy() #returns a shallow copy dictionary
 .fromkeys(sequenence, [value]) #create a new dictionary with keys from sequence and values set to a value
+
 # Output {'sequence[0]': value, 'sequence[1]': value, 'sequence[2]': value}
 .get(key, default=None) # For key (key), returns value or default if key is not in dictionary
 .has_key(key) - #Returns true if key is present in dictionary, otherwise it returns false
@@ -651,7 +652,61 @@ class BankAccount:
 
 
 
+#Association Between Classes - One Class is associated with an instance of another
 
+class User:
+    def __init__(self, name, email):
+        self.name = name
+        self.email = email
+    #The attribute (self.account) set to the class BankAccount with parameters is initialized in the user attributes        
+        self.account = BankAccount(int_rate=0.02, balance=0)	# added this line
+
+# To call the class info in User, we define a method, and can call the accounts methods in the User's methods
+class User:
+    def example_method(self):
+    	# we can call the BankAccount instance's methods
+        self.account.deposit(100)
+    	# or access its attributes
+    	print(self.account.balance)
+
+
+
+# Class Inheritance - 
+
+class Taco:
+    def __init__(self, meat, sauce, cheese):
+        self.meat = meat
+        self.sauce = sauce
+        self.cheese = cheese
+
+    def eat_taco(self):
+        print("eating this taco")
+
+class Taco_Sandwich(Taco):
+    def __init__(self,meat, sauce, cheese, bread):
+        super().__init__(meat, sauce, cheese)
+        self.bread = bread
+
+    def eat_taco(self):
+        super().eat_taco()
+        print("this is a taco sandwich")
+
+class Taco_With_Shell(Taco):
+    def __init__(self, shell, meat, sauce, cheese):
+        super().__init__(meat, sauce, cheese)
+        self.shell = shell
+
+    def eat_taco(self):
+        super().eat_taco()
+        print(f"This taco has a {self.shell} shell")
+
+paul_taco_1 = Taco("chicken", "green sauce", "cheddar")
+paul_taco_2 = Taco_Sandwich("barbecoa", "chimichuri", "jack", "sourdough")
+paul_taco_3 = Taco_With_Shell("crispy", "beef", "red", "cheddar")
+
+print(paul_taco_1.__dict__)
+print(paul_taco_2.__dict__)
+print(paul_taco_3.__dict__)
 
 
 
