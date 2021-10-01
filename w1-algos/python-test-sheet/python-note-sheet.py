@@ -12,6 +12,12 @@ Highlight + Ctrl + D # Continues to select instances of highlighted word in orde
 ```py # formats code posted in discord for Python
 
 
+# Terminal commands
+
+dir - #opens directories
+cd + (" ") + tab # This will cycle through the folders containing characters in " "
+
+
 # import libraries
 import urllib.request
 response = urllib.request.urlopen("http://www.codingdojo.com")
@@ -707,6 +713,64 @@ paul_taco_3 = Taco_With_Shell("crispy", "beef", "red", "cheddar")
 print(paul_taco_1.__dict__)
 print(paul_taco_2.__dict__)
 print(paul_taco_3.__dict__)
+
+
+
+
+#Flask - For Windows
+
+# Install Flask from Python in your terminal
+    # If this is not working, try running terminal as administrator by right clicking from Start menu and opening
+
+# Create a new folder for the project
+    # Copy the file-path to the project from the window header
+
+# Terminal - input [ text ] - text inside brackets are the only things to enter into the terminal 
+    # input [ cd file path ]  - The file path to your new folder. Paste it in. Don't write file-path
+            # Example - [ cd C:\Users\Brent\Desktop\python\flask\project-folder ]
+            # This will navigate the terminal to the new folder 
+    # input [ python -m pipenv install flask ] 
+            # This will install 2 flask files into the new folder 
+                #   Pipfile
+                #   Pipfile.lock
+
+# Create a Python file called "Server" (or other namee) in the same folder as the Flask files
+# Paste the following code into the Python file
+
+from flask import Flask, render_template  # Import Flask to allow us to create our app
+
+app = Flask(__name__)    # Create a new instance of the Flask class called "app"
+
+@app.route('/')          # The "@" decorator associates this route with the function immediately following
+
+def hello_world():
+    return render_template("index.html")  # Return the string 'Hello World!' as a response
+
+if __name__=="__main__":   # Ensure this file is being run directly and not from a different module    
+    app.run(debug=True)    # Run the app in debug mode.
+
+# Terminal
+    # Navigate to the project folder in terminal as before
+    # Run flask with the following command from your terminal
+        # Input [ python survey.py ] 
+            # survey.py is the example file name. Call your python file name.
+
+# Flask is now running.
+    # Ctrl + C to exit.
+    # Always exit Flask before closing your file.
+
+
+
+
+# Always name Flask folders " Templates " - Tem-pla-tes - Python always looks for Templates, not Template 
+
+
+
+
+
+
+
+
 
 
 
